@@ -28,7 +28,7 @@
 
 .calculator {
     background-color: var(--pink-dark);
-    height: 75%;
+    height: 35rem;
     min-width: 17rem;
     display: flex;
     flex-direction: column;
@@ -37,29 +37,17 @@
     border-radius: 20px;
 }
 
-.calculator__display-ans, .calculator__display-sum{
-    
+.calculator__display{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     padding-right: 1rem;
-}
-
-.calculator__display-ans{
     flex-grow: 1;
-}
-
-.calculator__display-sum{
     padding-bottom: 1rem;
 }
 
-.calculator__display-ans-text{
+.calculator__display-text{
     font-size: 4rem;
-    color: var(--white);
-    margin: 0;
-}
-
-.calculator__display-sum-text{
     color: var(--white);
     margin: 0;
 }
@@ -112,7 +100,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .calculator__row-five{

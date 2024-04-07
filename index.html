@@ -10,39 +10,36 @@
     <body>
         <main>
             <div class="calculator">
-                <div class="calculator__display-ans" id="answer-display">
-                    <p class="calculator__display-ans-text">0</p>
+                <div class="calculator__display" >
+                    <p class="calculator__display-text" id="display-text">0</p>
                 </div>
-                <div class="calculator__display-sum" id="sum-display">
-                    <p class="calculator__display-sum-text">display</p>
-                </div>
-                <div class="calculator__buttons">
+                <div class="calculator__buttons" id="buttons">
                     <div class="calculator__row-one">
                         <button class="calculator__button button-light-pink" id="button-clear">C</button>
-                        <button class="calculator__button button-light-pink" id="button-divide">/</button>
-                        <button class="calculator__button button-light-pink" id="button-multiply">*</button>
+                        <button class="calculator__button button-light-pink button-operator" id="button-divide">/</button>
+                        <button class="calculator__button button-light-pink button-operator" id="button-multiply">*</button>
                         <button class="calculator__button button-grey" id="button-back">&#x1F519</button>
                     </div>
                     <div class="calculator__row-two">
-                        <button class="calculator__button button-dark-pink" id="button-7">7</button>
-                        <button class="calculator__button button-dark-pink" id="button-8">8</button>
-                        <button class="calculator__button button-dark-pink" id="button-9">9</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-7">7</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-8">8</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-9">9</button>
                         <button class="calculator__button button-grey" id="button-percent">%</button>
                     </div>
                     <div class="calculator__row-three">
-                        <button class="calculator__button button-dark-pink" id="button-4">4</button>
-                        <button class="calculator__button button-dark-pink" id="button-5">5</button>
-                        <button class="calculator__button button-dark-pink" id="button-6">6</button>
-                        <button class="calculator__button button-grey" id="button-subtraction">-</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-4">4</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-5">5</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-6">6</button>
+                        <button class="calculator__button button-grey button-operator" id="button-subtraction">-</button>
                     </div>
                     <div class="calculator__row-four">
-                    <button class="calculator__button button-dark-pink" id="button-1">1</button>
-                        <button class="calculator__button button-dark-pink" id="button-2">2</button>
-                        <button class="calculator__button button-dark-pink" id="button-3">3</button>
-                        <button class="calculator__button button-grey" id="button-addition">+</button>
+                    <button class="calculator__button button-dark-pink button-number" id="button-1">1</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-2">2</button>
+                        <button class="calculator__button button-dark-pink button-number" id="button-3">3</button>
+                        <button class="calculator__button button-grey button-operator" id="button-addition">+</button>
                     </div>
                     <div class="calculator__row-five">
-                        <button class="calculator__button button-dark-pink button-0" id="button-0">0</button>
+                        <button class="calculator__button button-dark-pink button-0 button-number" id="button-0">0</button>
                         <button class="calculator__button button-dark-pink" id="button-decimal">.</button>
                         <button class="calculator__button button-grey" id="button-equals">=</button>
                     </div>
