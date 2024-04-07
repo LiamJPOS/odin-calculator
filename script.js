@@ -1,37 +1,42 @@
+//TODO
+//Make display font smaller the less space there is
+
 function updateDisplay(currentNumber){
-    const sumDisplay = document.getElementById("sum-display-text");
-    sumDisplay.textContent = 
+    const display = document.getElementById("display-text");
+    display.textContent = currentNumber.join('')
 }
 
-const buttons = Array.from(document.querySelectorAll("button"))
+const buttons = Array.from(document.querySelectorAll("button"));
 
 //Attach event listener so display buttons clicked run a function that updates the display
 let previousNumber = []
-let currentNumber = [] //can be used to track decimals
+let currentNumber = [] 
+
 
 const numberButtons = document.querySelectorAll(".button-number");
 numberButtons.forEach(button => button.addEventListener("click", () => {
-    arrayToCalculate.push(button.textContent);
+    if (currentNumber.length <= 8 ){
     currentNumber.push(button.textContent);
+    updateDisplay(currentNumber);
+    }    
 }))
+
+const decimalButton = document.getElementById("button-decimal");
+decimalButton.addEventListener("click", () => {
+    if (!currentNumber.includes(".")){
+        currentNumber.push(decimalButton.textContent)
+        console.log(currentNumber)
+    }
+})
+
+
 
 const operatorButtons = document.querySelectorAll(".button-operator");
 
 const clearButton = document.getElementById("button-clear");
 
-//Updates the display
-
-const displayButtons = buttons.filter(button => {
-    return button.id !== "button-equals"
-})
-
 //previous number is 0
 //current number and previous number is operated on?
-
-
-
-
-
 
 //Handle clear that will empty calcInput and clear both displays
 
