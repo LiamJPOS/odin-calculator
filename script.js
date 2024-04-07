@@ -3,15 +3,14 @@
 
 function updateDisplay(currentNumber){
     const display = document.getElementById("display-text");
-    display.textContent = currentNumber.join('')
+    display.textContent = currentNumber.length < 1 ? 0 : currentNumber.join('')
 }
 
 const buttons = Array.from(document.querySelectorAll("button"));
 
-//Attach event listener so display buttons clicked run a function that updates the display
 let previousNumber = []
 let currentNumber = [] 
-
+let operation = ''
 
 const numberButtons = document.querySelectorAll(".button-number");
 numberButtons.forEach(button => button.addEventListener("click", () => {
@@ -29,11 +28,14 @@ decimalButton.addEventListener("click", () => {
     }
 })
 
-
-
 const operatorButtons = document.querySelectorAll(".button-operator");
 
+
 const clearButton = document.getElementById("button-clear");
+clearButton.addEventListener("click", () => {
+    currentNumber = [];
+    updateDisplay(currentNumber);
+})
 
 //previous number is 0
 //current number and previous number is operated on?
