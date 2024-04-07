@@ -6,6 +6,16 @@ function updateDisplay(currentNumber){
     display.textContent = currentNumber.length < 1 ? 0 : currentNumber.join('')
 }
 
+function convertToNumber (array){
+    return Number(array.join(''))
+}
+
+function subtract (previousNumber, currentNumber){
+    previousNumber = convertToNumber(previousNumber);
+    currentNumber = convertToNumber(currentNumber);
+    return previousNumber - currentNumber;
+}
+
 const buttons = Array.from(document.querySelectorAll("button"));
 
 let previousNumber = []
@@ -23,10 +33,39 @@ numberButtons.forEach(button => button.addEventListener("click", () => {
 const decimalButton = document.getElementById("button-decimal");
 decimalButton.addEventListener("click", () => {
     if (!currentNumber.includes(".")){
-        currentNumber.push(decimalButton.textContent)
-        console.log(currentNumber)
+        if (currentNumber.length < 1){
+            currentNumber.push("0");
+            currentNumber.push(decimalButton.textContent);
+        }
+        else{
+            currentNumber.push(decimalButton.textContent);
+        }
+        updateDisplay(currentNumber);
     }
 })
+
+const subtractButton = document.getElementById("button-subtraction");
+subtractButton.addEventListener("click", () => {
+    if (currentNumber.length < 1){
+        currentNumber.push("-");
+        updateDisplay(currentNumber)
+    } 
+    else{
+        if (previousNumber.length < 1){
+            previousNumber = currentNumber;
+            currentNumber = [];
+            updateDisplay(currentNumber)
+        }
+        else{
+            answer = subtract(previousNumber, currentNumber); 
+            previousNumber = String(answer).split('');
+            updateDisplay(previousNumber);
+            currentNumber = []; 
+        }
+    }
+})
+
+
 
 const operatorButtons = document.querySelectorAll(".button-operator");
 
@@ -34,6 +73,8 @@ const operatorButtons = document.querySelectorAll(".button-operator");
 const clearButton = document.getElementById("button-clear");
 clearButton.addEventListener("click", () => {
     currentNumber = [];
+    previousNumber = []
+    operation = ''
     updateDisplay(currentNumber);
 })
 
