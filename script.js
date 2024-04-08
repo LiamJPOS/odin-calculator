@@ -1,3 +1,5 @@
+//TODO Add % button functionality
+//TODO Add backspace functionality
 //TODO Make display font smaller the less space there is
 //TODO subsequent clicks of operation buttons should change what operation is going to be performed next
 //TODO add button to make a number negative
@@ -28,7 +30,7 @@ function getOperationAnswer (previousNumber, currentNumber, operation){
             answer = previousNumber * currentNumber;
             break;
         case "/":
-            answer = currentNumber === 0 ? 8008135 : previousNumber / currentNumber;
+            answer = currentNumber === 0 ? "Nope" : previousNumber / currentNumber;
             break;
         case "":
             answer = currentNumber;
@@ -101,4 +103,15 @@ equalsButton.addEventListener("click", () => {
     previousNumber = String(answer).split('');
     updateDisplay(previousNumber);
     currentNumber = [];
+})
+
+const negativeButton = document.getElementById("button-negative");
+negativeButton.addEventListener("click", () => {
+    if (currentNumber[0] === "-"){
+        currentNumber = currentNumber.slice(1)
+    }
+    else{
+        currentNumber.splice(0, 0, '-');
+    }
+    updateDisplay(currentNumber);
 })
