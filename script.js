@@ -1,8 +1,6 @@
-//TODO Add % button functionality
 //TODO Add backspace functionality
 //TODO Make display font smaller the less space there is
 //TODO subsequent clicks of operation buttons should change what operation is going to be performed next
-//TODO add button to make a number negative
 //TODO add display for sum
 
 function updateDisplay(currentNumber){
@@ -12,6 +10,10 @@ function updateDisplay(currentNumber){
 
 function convertToNumber (array){
     return Number(array.join(''))
+}
+
+function convertToArray (number){
+    return String(number).split('');
 }
 
 function getOperationAnswer (previousNumber, currentNumber, operation){
@@ -49,7 +51,7 @@ function performOperation(button){
     }
     else{
         answer = getOperationAnswer(previousNumber, currentNumber, operation);
-        previousNumber = String(answer).split('');
+        previousNumber = convertToArray(answer);
         updateDisplay(previousNumber);
         currentNumber = [];
     }
@@ -100,7 +102,7 @@ clearButton.addEventListener("click", () => {
 const equalsButton = document.getElementById("button-equals");
 equalsButton.addEventListener("click", () => {  
     const answer = getOperationAnswer(previousNumber, currentNumber, operation)
-    previousNumber = String(answer).split('');
+    previousNumber = convertToArray(answer);
     updateDisplay(previousNumber);
     currentNumber = [];
 })
@@ -113,5 +115,13 @@ negativeButton.addEventListener("click", () => {
     else{
         currentNumber.splice(0, 0, '-');
     }
+    updateDisplay(currentNumber);
+})
+
+const percentButton = document.getElementById("button-percent");
+percentButton.addEventListener("click", () => {
+    let converted = convertToNumber(currentNumber);
+    converted /= 100;
+    currentNumber = convertToArray(converted);
     updateDisplay(currentNumber);
 })
