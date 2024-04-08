@@ -1,4 +1,7 @@
 //TODO Make display font smaller the less space there is
+//TODO subsequent clicks of operation buttons should change what operation is going to be performed next
+//TODO add button to make a number negative
+//TODO add display for sum
 
 function updateDisplay(currentNumber){
     const display = document.getElementById("display-text");
@@ -25,7 +28,10 @@ function getOperationAnswer (previousNumber, currentNumber, operation){
             answer = previousNumber * currentNumber;
             break;
         case "/":
-            currentNumber === 0 ? answer = 8008135 : answer = previousNumber / currentNumber;
+            answer = currentNumber === 0 ? 8008135 : previousNumber / currentNumber;
+            break;
+        case "":
+            answer = currentNumber;
             break;
             }
         
@@ -48,7 +54,8 @@ function performOperation(button){
 }
 
 let previousNumber = []
-let currentNumber = [] 
+let currentNumber = []
+let operation = ''
 
 const numberButtons = document.querySelectorAll(".button-number");
 numberButtons.forEach(button => button.addEventListener("click", () => {
@@ -75,6 +82,7 @@ decimalButton.addEventListener("click", () => {
 const operationButtons = document.querySelectorAll(".button-operator");
 operationButtons.forEach(button => {
     button.addEventListener("click", () => {
+        operation = button.textContent;
         performOperation(button, previousNumber, currentNumber);
     });
 });
@@ -82,7 +90,15 @@ operationButtons.forEach(button => {
 const clearButton = document.getElementById("button-clear");
 clearButton.addEventListener("click", () => {
     currentNumber = [];
-    previousNumber = []
+    previousNumber = [];
     operation = ''
     updateDisplay(currentNumber);
+})
+
+const equalsButton = document.getElementById("button-equals");
+equalsButton.addEventListener("click", () => {  
+    const answer = getOperationAnswer(previousNumber, currentNumber, operation)
+    previousNumber = String(answer).split('');
+    updateDisplay(previousNumber);
+    currentNumber = [];
 })
