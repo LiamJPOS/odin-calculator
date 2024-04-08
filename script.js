@@ -1,7 +1,4 @@
-//TODO Add backspace functionality
 //TODO Make display font smaller the less space there is
-//TODO subsequent clicks of operation buttons should change what operation is going to be performed next
-//TODO add display for sum
 
 function updateDisplay(currentNumber){
     const display = document.getElementById("display-text");
@@ -124,4 +121,10 @@ percentButton.addEventListener("click", () => {
     converted /= 100;
     currentNumber = convertToArray(converted);
     updateDisplay(currentNumber);
+})
+
+const backButton = document.getElementById("button-back");
+backButton.addEventListener("click", () => {
+    currentNumber.pop();
+    updateDisplay(currentNumber)
 })
