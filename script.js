@@ -1,8 +1,13 @@
-//TODO Make display font smaller the less space there is
-
 function updateDisplay(currentNumber){
     const display = document.getElementById("display-text");
-    display.textContent = currentNumber.length < 1 ? 0 : currentNumber.join('')
+    let fontSize = 4
+    if (currentNumber.length > 6){
+        for (let i = 6; i < currentNumber.length; i++){
+            fontSize -= 0.5;
+        }
+    }
+    display.style.fontSize = `${fontSize}rem`;
+    display.textContent = currentNumber.length < 1 ? 0 : currentNumber.join('');
 }
 
 function convertToNumber (array){
@@ -128,3 +133,4 @@ backButton.addEventListener("click", () => {
     currentNumber.pop();
     updateDisplay(currentNumber)
 })
+
