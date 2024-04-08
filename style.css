@@ -62,10 +62,10 @@
     cursor: pointer;
 }
 
-.button-0{
+/* .button-0{
     width: 7.5rem;
     border-radius: 40px;
-}
+} */
 .button-light-pink{
     background-color: var(--pink-light);
     color: var(--black);
